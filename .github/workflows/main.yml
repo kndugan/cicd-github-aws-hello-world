@@ -18,22 +18,23 @@ jobs:
       - run: npm test
         env:
           CI: true
-    name: Deploy
-    on:
-      push:
-        branches:
-          - master
-    jobs:
-      build:
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v2
-          - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-            with:
-              heroku_api_key: "83cb277a7a812323e78bd1a2e6de268cd11b2106"
-              # heroku_api_key: "${{secrets.HEROKU_API_KEY}}"
-              heroku_app_name: "cicd-github-heroku-hello-world" #Must be unique in Heroku
-              heroku_email: "kndugan@gmail.com"
+    # deploy to Heroku
+    # name: Deploy
+    # on:
+    #   push:
+    #     branches:
+    #       - master
+    # jobs:
+    #   build:
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #       - uses: actions/checkout@v2
+    #       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+    #         with:
+    #           heroku_api_key: "${{secrets.HEROKU_API_KEY}}"
+    #           heroku_app_name: "cicd-github-heroku-hello-world" #Must be unique in Heroku
+    #           heroku_email: "kndugan@gmail.com"
+  # deploy to AWS
   # deploy:
   #   needs: build
   #   runs-on: ubuntu-latest
